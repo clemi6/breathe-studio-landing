@@ -4,7 +4,10 @@ import { Reveal } from "./Reveal";
 
 export function Hero({ onContact }: { onContact: () => void }) {
   return (
-    <header id="top" className="relative overflow-hidden px-5 pt-28 pb-24 md:px-10 md:pt-40 md:pb-36">
+    <header
+      id="top"
+      className="relative overflow-hidden px-5 pt-20 pb-24 md:px-10 md:pt-10 md:pb-36"
+    >
       {/* Gradient mesh organique */}
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
         <div className="mesh-blob top-[-10%] left-[-5%] h-[55vmax] w-[55vmax] bg-accent/60 animate-drift-1" />
@@ -14,14 +17,6 @@ export function Hero({ onContact }: { onContact: () => void }) {
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-12 gap-y-14 md:gap-x-10">
-        <Reveal className="col-span-12 flex items-center gap-3 font-mono text-xs text-muted-foreground md:col-span-4">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-strong opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-accent-strong" />
-          </span>
-          disponible pour de nouveaux projets — 2026
-        </Reveal>
-
         <Reveal
           as="h1"
           delay={120}
@@ -32,7 +27,9 @@ export function Hero({ onContact }: { onContact: () => void }) {
             qui <span className="italic font-medium text-accent-strong">respirent</span>.
           </span>
           <span className="block pl-[6vw] md:pl-[12vw]">Design humain,</span>
-          <span className="block pl-[12vw] text-muted-foreground md:pl-[20vw]">code millimétré.</span>
+          <span className="block pl-[12vw] text-muted-foreground md:pl-[20vw]">
+            code millimétré.
+          </span>
         </Reveal>
 
         <Reveal
@@ -51,6 +48,7 @@ export function Hero({ onContact }: { onContact: () => void }) {
         >
           <Magnetic
             onClick={onContact}
+            cursorTarget="contact"
             className="bg-foreground px-8 py-5 text-base font-semibold text-background shadow-float-lg hover:shadow-glow"
           >
             Parlons de votre projet
@@ -59,6 +57,7 @@ export function Hero({ onContact }: { onContact: () => void }) {
           <Magnetic
             href="#projets"
             strength={0.2}
+            cursorTarget="projects"
             className="glass px-6 py-5 text-base font-medium text-foreground"
           >
             Voir les projets

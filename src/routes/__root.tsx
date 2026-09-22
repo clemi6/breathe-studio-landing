@@ -8,10 +8,12 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const FloatingCursor = lazy(() => import("../components/breathe/FloatingCursor"));
 
 function NotFoundComponent() {
   return (
@@ -19,7 +21,9 @@ function NotFoundComponent() {
       <div className="mesh-blob -right-32 top-1/4 size-96 animate-drift-2 bg-accent/30" />
       <div className="relative mx-auto grid w-full max-w-7xl gap-12 md:grid-cols-12 md:items-end">
         <div className="md:col-span-8">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Erreur 404</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            Erreur 404
+          </p>
           <h1 className="mt-6 font-display text-[clamp(5rem,18vw,14rem)] font-extrabold leading-[0.78] tracking-[-0.08em] text-foreground">
             4<span className="text-accent-strong">0</span>4
           </h1>
@@ -128,9 +132,27 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [showFloatingCursor, setShowFloatingCursor] = useState(false);
+
+  useEffect(() => {
+    const loadCursor = () => setShowFloatingCursor(true);
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadCursor, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(loadCursor, 800);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
+      {showFloatingCursor ? (
+        <Suspense fallback={null}>
+          <FloatingCursor />
+        </Suspense>
+      ) : null}
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

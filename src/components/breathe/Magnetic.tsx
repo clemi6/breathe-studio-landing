@@ -8,10 +8,19 @@ type MagneticProps = {
   onClick?: () => void;
   href?: string;
   type?: "button" | "submit";
+  cursorTarget?: "contact" | "projects";
 };
 
 /** Bouton magnétique : glisse doucement vers le curseur. */
-export function Magnetic({ children, className, strength = 0.35, onClick, href, type = "button" }: MagneticProps) {
+export function Magnetic({
+  children,
+  className,
+  strength = 0.35,
+  onClick,
+  href,
+  type = "button",
+  cursorTarget,
+}: MagneticProps) {
   const ref = useRef<HTMLElement>(null);
 
   const move = (e: MouseEvent) => {
@@ -39,6 +48,7 @@ export function Magnetic({ children, className, strength = 0.35, onClick, href, 
         onMouseMove={move}
         onMouseLeave={leave}
         onClick={onClick}
+        data-cursor-target={cursorTarget}
         className={cls}
       >
         {children}
@@ -52,6 +62,7 @@ export function Magnetic({ children, className, strength = 0.35, onClick, href, 
       onMouseMove={move}
       onMouseLeave={leave}
       onClick={onClick}
+      data-cursor-target={cursorTarget}
       className={cls}
     >
       {children}

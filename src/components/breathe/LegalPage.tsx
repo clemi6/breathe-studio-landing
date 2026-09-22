@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
+import { contactDetails } from "@/lib/contact";
 
 export function LegalPage({ title, updated, children }: { title: string; updated: string; children: ReactNode }) {
   return (
@@ -21,8 +22,8 @@ export function LegalPage({ title, updated, children }: { title: string; updated
         </div>
         <p className="mt-16 border-t border-border pt-8 font-mono text-xs text-muted-foreground">
           breathe<span className="text-accent-strong">.</span>studio — une question ?{" "}
-          <a href="mailto:bonjour@breathe.studio" className="underline underline-offset-4">
-            bonjour@breathe.studio
+          <a href={`mailto:${contactDetails.email}`} className="underline underline-offset-4">
+            {contactDetails.email}
           </a>
         </p>
       </div>

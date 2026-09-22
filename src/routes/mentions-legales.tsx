@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, Section } from "@/components/breathe/LegalPage";
+import { contactDetails } from "@/lib/contact";
 
 const title = "Mentions légales — Breathe Studio";
 
@@ -25,10 +26,10 @@ function MentionsLegales() {
           développement sur-mesure.
         </p>
         <ul className="list-disc pl-5 marker:text-accent-strong">
-          <li>Responsable de la publication : [Votre nom et prénom]</li>
-          <li>Adresse : [Adresse postale]</li>
-          <li>E-mail : <a href="mailto:bonjour@breathe.studio" className="underline underline-offset-4">bonjour@breathe.studio</a></li>
-          <li>Téléphone : [Numéro de téléphone]</li>
+          <li>Responsable de la publication : {contactDetails.name}</li>
+          <li>Adresse : {contactDetails.address}</li>
+          <li>E-mail : <a href={`mailto:${contactDetails.email}`} className="underline underline-offset-4">{contactDetails.email}</a></li>
+          <li>Téléphone : {contactDetails.phone}</li>
           <li>SIRET : [Numéro SIRET]</li>
           <li>TVA non applicable, article 293 B du CGI</li>
         </ul>

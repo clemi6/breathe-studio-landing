@@ -7,6 +7,7 @@ import { Hero } from "@/components/breathe/Hero";
 import { Services } from "@/components/breathe/Services";
 import { Projects } from "@/components/breathe/Projects";
 import { Process } from "@/components/breathe/Process";
+import { About } from "@/components/breathe/About";
 import { ContactPanel } from "@/components/breathe/ContactPanel";
 import { Footer } from "@/components/breathe/Footer";
 
@@ -44,6 +45,7 @@ function Index() {
           <Services />
           <Projects />
           <Process />
+          <About onContact={open} />
         </main>
         <Footer onContact={open} />
         <ContactPanel open={contactOpen} onClose={close} />

@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
+import { contactDetails } from "@/lib/contact";
 
 export function Footer({ onContact }: { onContact: () => void }) {
   return (
@@ -20,20 +22,44 @@ export function Footer({ onContact }: { onContact: () => void }) {
               Écrire à Breathe Studio
               <ArrowUpRight className="size-5" />
             </Magnetic>
-            <a
-              href="mailto:bonjour@breathe.studio"
-              className="font-mono text-xs text-muted-foreground underline-offset-4 hover:underline"
-            >
-              bonjour@breathe.studio
-            </a>
+            <div className="flex flex-col gap-2 font-mono text-xs text-muted-foreground md:items-end">
+              <a href={`mailto:${contactDetails.email}`} className="underline-offset-4 hover:underline">
+                {contactDetails.email}
+              </a>
+              {contactDetails.phoneHref ? (
+                <a href={`tel:${contactDetails.phoneHref}`} className="underline-offset-4 hover:underline">
+                  {contactDetails.phone}
+                </a>
+              ) : (
+                <span>{contactDetails.phone}</span>
+              )}
+            </div>
           </div>
         </Reveal>
 
-        <div className="mt-24 flex flex-col gap-4 border-t border-border pt-8 font-mono text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <span>
-            breathe<span className="text-accent-strong">.</span>studio — design web &amp; développement sur-mesure
-          </span>
-          <span>© 2026 · fait à la main, sans template</span>
+        <div className="mt-24 grid gap-10 border-t border-border pt-8 md:grid-cols-12">
+          <div className="font-mono text-xs leading-relaxed text-muted-foreground md:col-span-5">
+            <span className="block">
+              breathe<span className="text-accent-strong">.</span>studio — design web &amp; développement sur-mesure
+            </span>
+            <span className="mt-4 block">{contactDetails.name} · {contactDetails.role}</span>
+            <span className="mt-1 block">{contactDetails.address}</span>
+            <span className="mt-2 block">© 2026 · fait à la main, sans template</span>
+          </div>
+          <nav aria-label="Informations légales" className="grid grid-cols-2 gap-x-8 gap-y-3 font-mono text-xs md:col-span-7 md:grid-cols-4">
+            <Link to="/mentions-legales" className="text-muted-foreground transition-colors hover:text-foreground">
+              Mentions légales
+            </Link>
+            <Link to="/politique-de-confidentialite" className="text-muted-foreground transition-colors hover:text-foreground">
+              Confidentialité / RGPD
+            </Link>
+            <Link to="/politique-cookies" className="text-muted-foreground transition-colors hover:text-foreground">
+              Gestion des cookies
+            </Link>
+            <Link to="/cgv" className="text-muted-foreground transition-colors hover:text-foreground">
+              CGV
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

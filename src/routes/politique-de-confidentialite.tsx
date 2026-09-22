@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, Section } from "@/components/breathe/LegalPage";
+import { contactDetails } from "@/lib/contact";
 
 const title = "Politique de confidentialité — Breathe Studio";
 
@@ -42,7 +43,7 @@ function PolitiqueConfidentialite() {
         <p>
           Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de
           rectification, d'effacement, de portabilité, de limitation et d'opposition sur vos données.
-          Écrivez à <a href="mailto:bonjour@breathe.studio" className="underline underline-offset-4">bonjour@breathe.studio</a> pour
+          Écrivez à <a href={`mailto:${contactDetails.email}`} className="underline underline-offset-4">{contactDetails.email}</a> pour
           les exercer. Vous pouvez également saisir la CNIL (cnil.fr) en cas de litige.
         </p>
       </Section>

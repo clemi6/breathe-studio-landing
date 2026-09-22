@@ -5,6 +5,7 @@ const links = [
   { href: "#services", label: "Services" },
   { href: "#projets", label: "Projets" },
   { href: "#approche", label: "Approche" },
+  { href: "#a-propos", label: "À propos" },
 ];
 
 export function Dock({ onContact }: { onContact: () => void }) {

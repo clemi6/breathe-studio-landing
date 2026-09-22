@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CgvRouteImport } from './routes/cgv'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as PolitiqueCookiesRouteImport } from './routes/politique-cookies'
 import { Route as PolitiqueDeConfidentialiteRouteImport } from './routes/politique-de-confidentialite'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PolitiqueCookiesRoute = PolitiqueCookiesRouteImport.update({
+  id: '/politique-cookies',
+  path: '/politique-cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PolitiqueDeConfidentialiteRoute =
   PolitiqueDeConfidentialiteRouteImport.update({
     id: '/politique-de-confidentialite',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-cookies': typeof PolitiqueCookiesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-cookies': typeof PolitiqueCookiesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
 }
 export interface FileRoutesById {
@@ -53,19 +61,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-cookies': typeof PolitiqueCookiesRoute
   '/politique-de-confidentialite': typeof PolitiqueDeConfidentialiteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/cgv' | '/mentions-legales' | '/politique-de-confidentialite'
+    | '/'
+    | '/cgv'
+    | '/mentions-legales'
+    | '/politique-cookies'
+    | '/politique-de-confidentialite'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cgv' | '/mentions-legales' | '/politique-de-confidentialite'
+  to:
+    | '/'
+    | '/cgv'
+    | '/mentions-legales'
+    | '/politique-cookies'
+    | '/politique-de-confidentialite'
   id:
     | '__root__'
     | '/'
     | '/cgv'
     | '/mentions-legales'
+    | '/politique-cookies'
     | '/politique-de-confidentialite'
   fileRoutesById: FileRoutesById
 }
@@ -73,6 +92,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  PolitiqueCookiesRoute: typeof PolitiqueCookiesRoute
   PolitiqueDeConfidentialiteRoute: typeof PolitiqueDeConfidentialiteRoute
 }
 
@@ -99,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentionsLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/politique-cookies': {
+      id: '/politique-cookies'
+      path: '/politique-cookies'
+      fullPath: '/politique-cookies'
+      preLoaderRoute: typeof PolitiqueCookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/politique-de-confidentialite': {
       id: '/politique-de-confidentialite'
       path: '/politique-de-confidentialite'
@@ -113,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  PolitiqueCookiesRoute: PolitiqueCookiesRoute,
   PolitiqueDeConfidentialiteRoute: PolitiqueDeConfidentialiteRoute,
 }
 export const routeTree = rootRouteImport

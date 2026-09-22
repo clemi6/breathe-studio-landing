@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -14,19 +15,29 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
+    <div className="grain relative flex min-h-screen items-center overflow-hidden px-5 py-16 md:px-10">
+      <div className="mesh-blob -right-32 top-1/4 size-96 animate-drift-2 bg-accent/30" />
+      <div className="relative mx-auto grid w-full max-w-7xl gap-12 md:grid-cols-12 md:items-end">
+        <div className="md:col-span-8">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Erreur 404</p>
+          <h1 className="mt-6 font-display text-[clamp(5rem,18vw,14rem)] font-extrabold leading-[0.78] tracking-[-0.08em] text-foreground">
+            4<span className="text-accent-strong">0</span>4
+          </h1>
+        </div>
+        <div className="md:col-span-4 md:pb-2">
+          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-balance md:text-4xl">
+            Cette page a pris un autre chemin.
+          </h2>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            L'adresse demandée n'existe pas ou n'est plus disponible. Revenons à l'essentiel.
+          </p>
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="mt-8 inline-flex items-center gap-3 bg-foreground px-6 py-4 text-sm font-semibold text-background shadow-float transition-shadow hover:shadow-glow"
           >
-            Go home
+            <ArrowLeft className="size-4" />
+            Retour à l'accueil
+            <ArrowUpRight className="size-4" />
           </Link>
         </div>
       </div>

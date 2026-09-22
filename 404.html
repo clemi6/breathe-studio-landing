@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — La tête dans les nuages | Breathe Studio</title>
+  <meta name="description" content="Cette page n'existe pas ou n'est pas disponible pour le moment. Retournez à Breathe Studio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("breathe-theme");
+        var d = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (d) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="page-loader" data-page-loader aria-live="polite" aria-label="Chargement en cours">
+    <div class="page-loader__scene" aria-hidden="true">
+      <span class="page-loader__orb"></span>
+      <span class="page-loader__cloud page-loader__cloud--back"></span>
+      <span class="page-loader__cloud"></span>
+      <span class="page-loader__label">on prend une grande inspiration</span>
+    </div>
+  </div>
+
+  <main class="not-found grain">
+    <div class="not-found__mesh" aria-hidden="true"></div>
+    <div class="not-found__inner">
+      <section class="not-found__copy">
+        <span class="not-found__eyebrow">erreur 404 · altitude inconnue</span>
+        <h1>Vous avez la tête <em>dans les nuages&nbsp;!</em></h1>
+        <p class="not-found__lead">Cette page n'existe pas ou n'est pas disponible pour le moment. Pas de panique, on redescend tranquillement vers un endroit plus familier.</p>
+        <div class="not-found__actions">
+          <a class="btn btn--solid" href="index.html">Retourner à l'accueil
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--glass" href="mailto:bonjour@breathe.studio">Prévenir Breathe Studio</a>
+        </div>
+      </section>
+
+      <div class="not-found__art" aria-label="Une personne dont la tête est cachée par des nuages" role="img">
+        <span class="not-found__halo" aria-hidden="true"></span>
+        <div class="not-found__figure" aria-hidden="true">
+          <span class="not-found__arm not-found__arm--left"></span>
+          <span class="not-found__arm not-found__arm--right"></span>
+          <span class="not-found__body"></span>
+          <span class="not-found__neck"></span>
+          <span class="not-found__head"></span>
+          <span class="not-found__cloud not-found__cloud--small"></span>
+          <span class="not-found__cloud not-found__cloud--main"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

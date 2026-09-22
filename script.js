@@ -1,4 +1,32 @@
-/* Core UI — no Three.js dependency */
+/* ---------- Theme ---------- */
+function initPageLoader() {
+  const loader = document.querySelector("[data-page-loader]");
+  if (!loader) return;
+
+  const finish = () => {
+    window.setTimeout(() => loader.classList.add("is-done"), 650);
+  };
+
+  if (document.readyState === "complete") finish();
+  else window.addEventListener("load", finish, { once: true });
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link || event.defaultPrevented || link.target === "_blank") return;
+    if (link.origin !== window.location.origin || link.pathname === window.location.pathname && link.hash) return;
+    if (link.href.startsWith("mailto:") || link.href.startsWith("tel:")) return;
+
+    event.preventDefault();
+    loader.classList.remove("is-done");
+    window.setTimeout(() => {
+      window.location.href = link.href;
+    }, 420);
+  });
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) finish();
+  });
+}
 
 /* ---------- Theme ---------- */
 function initTheme() {
@@ -180,6 +208,7 @@ function initContact() {
   });
 }
 
+initPageLoader();
 initTheme();
 initReveal();
 document.documentElement.classList.add("js-ready");

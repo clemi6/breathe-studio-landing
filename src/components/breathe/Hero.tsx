@@ -25,14 +25,14 @@ export function Hero({ onContact }: { onContact: () => void }) {
         <Reveal
           as="h1"
           delay={120}
-          className="col-span-12 font-display text-[clamp(2.75rem,9.5vw,8.5rem)] leading-[0.92] font-extrabold tracking-[-0.04em] text-balance md:col-start-1 md:col-span-11"
+          className="col-span-12 font-display text-[clamp(2.5rem,7.6vw,7.5rem)] leading-[0.92] font-extrabold tracking-[-0.04em] md:col-start-1 md:col-span-12"
         >
-          Des sites web
-          <br />
-          qui <span className="italic font-medium text-accent-strong">respirent</span>.
-          <br />
-          <span className="block pl-[8vw] md:pl-[18vw]">Design humain,</span>
-          <span className="block pl-[16vw] text-muted-foreground md:pl-[30vw]">code millimétré.</span>
+          <span className="block">Des sites web</span>
+          <span className="block">
+            qui <span className="italic font-medium text-accent-strong">respirent</span>.
+          </span>
+          <span className="block pl-[6vw] md:pl-[12vw]">Design humain,</span>
+          <span className="block pl-[12vw] text-muted-foreground md:pl-[20vw]">code millimétré.</span>
         </Reveal>
 
         <Reveal

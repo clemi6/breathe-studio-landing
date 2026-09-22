@@ -1,24 +1,53 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useState } from "react";
+import { ThemeProvider } from "@/components/breathe/ThemeProvider";
+import { CustomCursor } from "@/components/breathe/CustomCursor";
+import { Dock } from "@/components/breathe/Dock";
+import { Hero } from "@/components/breathe/Hero";
+import { Services } from "@/components/breathe/Services";
+import { Projects } from "@/components/breathe/Projects";
+import { Process } from "@/components/breathe/Process";
+import { ContactPanel } from "@/components/breathe/ContactPanel";
+import { Footer } from "@/components/breathe/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Breathe Studio — Des sites web qui respirent";
+const description =
+  "Design UI/UX humain et développement front-end sur-mesure. Breathe Studio conçoit des sites aérés, rapides et accessibles pour les indépendants et les marques.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "fr_FR" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const open = useCallback(() => setContactOpen(true), []);
+  const close = useCallback(() => setContactOpen(false), []);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ThemeProvider>
+      <div className="relative grain min-h-screen">
+        <CustomCursor />
+        <Dock onContact={open} />
+        <main>
+          <Hero onContact={open} />
+          <Services />
+          <Projects />
+          <Process />
+        </main>
+        <Footer onContact={open} />
+        <ContactPanel open={contactOpen} onClose={close} />
+      </div>
+    </ThemeProvider>
   );
 }

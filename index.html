@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breathe Studio — Des sites web qui respirent</title>
+  <meta name="description" content="Design UI/UX humain et développement front-end sur-mesure. Breathe Studio conçoit des sites aérés, rapides et accessibles pour les indépendants et les marques." />
+  <meta name="author" content="Breathe Studio" />
+  <meta property="og:title" content="Breathe Studio — Des sites web qui respirent" />
+  <meta property="og:description" content="Design UI/UX humain et développement front-end sur-mesure. Breathe Studio conçoit des sites aérés, rapides et accessibles pour les indépendants et les marques." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("breathe-theme");
+        var d = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (d) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="page grain">
+    <!-- Custom cursor -->
+    <div class="cursor-dot" aria-hidden="true" hidden></div>
+    <div class="cursor-ring" aria-hidden="true" hidden></div>
+
+
+
+    <!-- Dock -->
+    <nav class="dock" aria-label="Navigation principale">
+      <div class="dock__inner glass">
+        <a href="#top" class="dock__brand">breathe<span>.</span></a>
+        <span class="dock__sep" aria-hidden="true"></span>
+        <a href="#services" class="dock__link">Services</a>
+        <a href="#projets" class="dock__link">Projets</a>
+        <a href="#approche" class="dock__link">Approche</a>
+        <a href="#a-propos" class="dock__link">À propos</a>
+        <button type="button" class="dock__contact" data-open-contact>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <span>Contact</span>
+        </button>
+        <button type="button" class="dock__theme" id="theme-toggle" aria-label="Activer le mode sombre">
+          <span class="dock__theme-knob">
+            <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <header id="top" class="hero">
+        <div class="hero__mesh" aria-hidden="true">
+          <div class="mesh-blob mesh-blob--1"></div>
+          <div class="mesh-blob mesh-blob--2"></div>
+          <div class="mesh-blob mesh-blob--3"></div>
+          <div class="hero__fade"></div>
+        </div>
+
+        <div class="hero__grid">
+          <h1 class="hero__title reveal" style="--reveal-delay: 120ms">
+            <span>Des sites web</span>
+            <span>qui <em>respirent</em>.</span>
+            <span class="indent-1">Design humain,</span>
+            <span class="indent-2 muted">code millimétré.</span>
+          </h1>
+
+          <div class="hero__intro reveal" style="--reveal-delay: 260ms">
+            <p>
+              Breathe Studio conçoit des interfaces aérées et développe des sites sur-mesure pour les
+              indépendants et les marques qui veulent se sentir compris, pas seulement livrés.
+            </p>
+          </div>
+
+          <div class="hero__cta reveal" style="--reveal-delay: 380ms">
+            <button type="button" class="btn btn--solid magnetic" data-open-contact data-cursor-target="contact">
+              Parlons de votre projet
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </button>
+            <a href="#projets" class="btn btn--glass magnetic" data-cursor-target="projects" data-magnetic-strength="0.2">
+              Voir les projets
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="marquee">
+          <div class="marquee__track">
+            <span class="marquee__group">
+              <span>Design UI/UX</span><span class="accent">✳</span>
+              <span>Développement front-end</span><span class="accent">✳</span>
+              <span>Accessibilité</span><span class="accent">✳</span>
+              <span>Performance</span><span class="accent">✳</span>
+              <span>Accompagnement humain</span><span class="accent">✳</span>
+            </span>
+            <span class="marquee__group" aria-hidden="true">
+              <span>Design UI/UX</span><span class="accent">✳</span>
+              <span>Développement front-end</span><span class="accent">✳</span>
+              <span>Accessibilité</span><span class="accent">✳</span>
+              <span>Performance</span><span class="accent">✳</span>
+              <span>Accompagnement humain</span><span class="accent">✳</span>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Services -->
+      <section id="services" class="section">
+        <div class="wrap">
+          <header class="section-header reveal">
+            <span class="section-header__index">01 — Services</span>
+            <h2 class="section-header__title">Deux métiers, une seule respiration.</h2>
+            <p class="section-header__kicker">Le design pense l'expérience. Le code la rend légère, rapide, durable.</p>
+          </header>
+
+          <div class="services-grid">
+            <article class="card card-float services-card services-card--wide reveal">
+              <div class="card__glow card__glow--tr" aria-hidden="true"></div>
+              <div class="card__body">
+                <div class="card__top">
+                  <span class="tag-mono">design.ui/ux</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                </div>
+                <div>
+                  <h3>Design UI/UX</h3>
+                  <p>
+                    Des interfaces qui laissent de la place au regard. Chaque écran est pensé pour
+                    guider sans crier : hiérarchie claire, typographie soignée, parcours sans friction.
+                  </p>
+                  <ul class="tag-list">
+                    <li class="tag-mono">Direction artistique</li>
+                    <li class="tag-mono">Wireframes</li>
+                    <li class="tag-mono">Prototypes Figma</li>
+                    <li class="tag-mono">Design system</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card-float services-card reveal" style="--reveal-delay: 120ms">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+              <div class="services-card__stat">
+                <p class="stat">&lt;1<span>s</span></p>
+                <p>Temps de chargement visé sur chaque projet. Un site rapide, c'est un visiteur qui reste.</p>
+              </div>
+            </article>
+
+            <article class="card card-float services-card reveal" style="--reveal-delay: 80ms">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent" aria-hidden="true"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 5.5"/><path d="M7 21v-7l4-4"/></svg>
+              <div class="services-card__stat">
+                <h3 class="h3-sm">Accessible par défaut</h3>
+                <p>Contrastes, clavier, lecteurs d'écran : un site qui respire pour tout le monde.</p>
+              </div>
+            </article>
+
+            <article class="card card-float services-card services-card--wide reveal" style="--reveal-delay: 160ms">
+              <div class="card__glow card__glow--bl" aria-hidden="true"></div>
+              <div class="card__body">
+                <div class="card__top">
+                  <span class="tag-mono">dev.front-end</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                </div>
+                <div>
+                  <h3>Développement front-end</h3>
+                  <p>
+                    Du code propre, modulaire et millimétré. Pas de thème bricolé : une base solide,
+                    performante et facile à faire évoluer.
+                  </p>
+                  <ul class="tag-list">
+                    <li class="tag-mono">React</li>
+                    <li class="tag-mono">TypeScript</li>
+                    <li class="tag-mono">Tailwind</li>
+                    <li class="tag-mono">Animations</li>
+                    <li class="tag-mono">SEO technique</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <div class="banner reveal" style="--reveal-delay: 200ms">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-accent" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+              <p>
+                Un seul interlocuteur du premier croquis à la mise en ligne. Vous parlez à la personne qui
+                conçoit <em>et</em> qui code.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projets" class="section">
+        <div class="wrap">
+          <header class="section-header reveal">
+            <span class="section-header__index">02 — Projets</span>
+            <h2 class="section-header__title">Des résultats, pas seulement de jolies captures.</h2>
+            <p class="section-header__kicker">Chaque projet part d'un problème réel et se termine par un chiffre mesurable.</p>
+          </header>
+
+          <div class="projects-grid">
+            <article class="card card-float project project--wide reveal">
+              <div class="project__visual" data-cursor>
+                <svg viewBox="0 0 400 200" class="visual-wave" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 110 C 100 40, 200 170, 400 90" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 122 C 100 58, 200 160, 400 98" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 134 C 100 76, 200 150, 400 106" fill="none" stroke="currentColor" stroke-width="1" class="wave-accent"/>
+                  <path d="M0 146 C 100 94, 200 140, 400 114" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 158 C 100 112, 200 130, 400 122" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                </svg>
+                <span class="tag-mono project__year">2026</span>
+                <span class="project__arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+              </div>
+              <div class="project__body">
+                <div class="project__head">
+                  <h3>Atelier Lune</h3>
+                  <span>Céramiste indépendante</span>
+                </div>
+                <dl class="project__dl">
+                  <dt>Problème</dt>
+                  <dd>Un site vitrine lent, illisible sur mobile, qui faisait fuir 70 % des visiteurs avant la page boutique.</dd>
+                  <dt>Solution</dt>
+                  <dd>Refonte complète autour du produit : galerie aérée, navigation en un geste, images optimisées.</dd>
+                </dl>
+                <div class="project__foot">
+                  <div>
+                    <p class="label">Impact</p>
+                    <p class="impact">x2</p>
+                    <p class="impact-label">vitesse de chargement</p>
+                  </div>
+                  <ul class="tag-list">
+                    <li class="tag-mono">react</li>
+                    <li class="tag-mono">tailwind</li>
+                    <li class="tag-mono">vite</li>
+                    <li class="tag-mono">shopify-api</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card-float project project--offset reveal" style="--reveal-delay: 120ms">
+              <div class="project__visual" data-cursor>
+                <div class="visual-grid" aria-hidden="true"></div>
+                <span class="tag-mono project__year">2025</span>
+                <span class="project__arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+              </div>
+              <div class="project__body">
+                <div class="project__head">
+                  <h3>Cabinet Ravel</h3>
+                  <span>Architecture d'intérieur</span>
+                </div>
+                <dl class="project__dl">
+                  <dt>Problème</dt>
+                  <dd>Une image haut de gamme trahie par un template WordPress générique et des textes noyés.</dd>
+                  <dt>Solution</dt>
+                  <dd>Direction artistique éditoriale, typographie surdimensionnée, études de cas en plein écran.</dd>
+                </dl>
+                <div class="project__foot">
+                  <div>
+                    <p class="label">Impact</p>
+                    <p class="impact">+140 %</p>
+                    <p class="impact-label">demandes de devis</p>
+                  </div>
+                  <ul class="tag-list">
+                    <li class="tag-mono">next.js</li>
+                    <li class="tag-mono">typescript</li>
+                    <li class="tag-mono">sanity</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card-float project reveal">
+              <div class="project__visual" data-cursor>
+                <div class="visual-rings" aria-hidden="true">
+                  <span style="--r:1"></span><span style="--r:2"></span><span style="--r:3"></span><span style="--r:4"></span>
+                  <i></i>
+                </div>
+                <span class="tag-mono project__year">2025</span>
+                <span class="project__arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+              </div>
+              <div class="project__body">
+                <div class="project__head">
+                  <h3>Nord Café</h3>
+                  <span>Torréfacteur local</span>
+                </div>
+                <dl class="project__dl">
+                  <dt>Problème</dt>
+                  <dd>Des commandes prises par messages privés, des erreurs, du temps perdu chaque semaine.</dd>
+                  <dt>Solution</dt>
+                  <dd>Mini-boutique en ligne avec retrait en magasin et une interface pensée pour le pouce.</dd>
+                </dl>
+                <div class="project__foot">
+                  <div>
+                    <p class="label">Impact</p>
+                    <p class="impact">-6 h</p>
+                    <p class="impact-label">de gestion par semaine</p>
+                  </div>
+                  <ul class="tag-list">
+                    <li class="tag-mono">react</li>
+                    <li class="tag-mono">stripe</li>
+                    <li class="tag-mono">supabase</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card card-float project project--wide project--offset reveal" style="--reveal-delay: 120ms">
+              <div class="project__visual" data-cursor>
+                <svg viewBox="0 0 400 200" class="visual-wave" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0 110 C 100 40, 200 170, 400 90" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 122 C 100 58, 200 160, 400 98" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 134 C 100 76, 200 150, 400 106" fill="none" stroke="currentColor" stroke-width="1" class="wave-accent"/>
+                  <path d="M0 146 C 100 94, 200 140, 400 114" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                  <path d="M0 158 C 100 112, 200 130, 400 122" fill="none" stroke="currentColor" stroke-width="1" class="wave-muted"/>
+                </svg>
+                <span class="tag-mono project__year">2024</span>
+                <span class="project__arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+              </div>
+              <div class="project__body">
+                <div class="project__head">
+                  <h3>Pleine Voix</h3>
+                  <span>Coach en prise de parole</span>
+                </div>
+                <dl class="project__dl">
+                  <dt>Problème</dt>
+                  <dd>Un parcours de réservation en 7 étapes qui décourageait les prospects les plus timides.</dd>
+                  <dt>Solution</dt>
+                  <dd>Page unique, ton chaleureux, réservation en deux clics et réassurance à chaque étape.</dd>
+                </dl>
+                <div class="project__foot">
+                  <div>
+                    <p class="label">Impact</p>
+                    <p class="impact">98</p>
+                    <p class="impact-label">score Lighthouse accessibilité</p>
+                  </div>
+                  <ul class="tag-list">
+                    <li class="tag-mono">astro</li>
+                    <li class="tag-mono">tailwind</li>
+                    <li class="tag-mono">cal.com</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="approche" class="section section--process">
+        <div class="mesh-blob mesh-blob--process" aria-hidden="true"></div>
+        <div class="wrap">
+          <header class="section-header reveal">
+            <span class="section-header__index">03 — Approche</span>
+            <h2 class="section-header__title">Un accompagnement qui rassure, à chaque étape.</h2>
+            <p class="section-header__kicker">Vous n'avez pas besoin de comprendre le code. Vous avez besoin de quelqu'un qui le comprend pour vous.</p>
+          </header>
+
+          <ol class="process-grid">
+            <li class="glass process-card reveal">
+              <div class="process-card__top">
+                <span class="process-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                </span>
+                <span class="process-card__step">étape 01</span>
+              </div>
+              <h3>Découverte</h3>
+              <p>On commence par vous écouter. Pas de jargon, pas de cahier des charges de 40 pages : une conversation pour comprendre votre métier, vos clients et ce qui vous empêche de dormir.</p>
+              <p class="process-card__fear">« Je n'y connais rien en technique. » — Tant mieux, c'est mon travail.</p>
+            </li>
+            <li class="glass process-card process-card--offset reveal" style="--reveal-delay: 100ms">
+              <div class="process-card__top">
+                <span class="process-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" x2="2" y1="8" y2="22"/><line x1="17.5" x2="9" y1="15" y2="15"/></svg>
+                </span>
+                <span class="process-card__step">étape 02</span>
+              </div>
+              <h3>Création</h3>
+              <p>Vous voyez le design avant la moindre ligne de code. On ajuste ensemble, calmement, jusqu'à ce que ça vous ressemble. Puis je développe, proprement.</p>
+              <p class="process-card__fear">« Et si je n'aime pas ? » — On itère, sans surcoût caché.</p>
+            </li>
+            <li class="glass process-card reveal" style="--reveal-delay: 200ms">
+              <div class="process-card__top">
+                <span class="process-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                </span>
+                <span class="process-card__step">étape 03</span>
+              </div>
+              <h3>Lancement</h3>
+              <p>Mise en ligne accompagnée : nom de domaine, hébergement, vérifications de vitesse et d'accessibilité. Vous n'avez rien à configurer vous-même.</p>
+              <p class="process-card__fear">« Ça va casser le jour J ? » — Tout est testé, et je reste là.</p>
+            </li>
+            <li class="glass process-card process-card--offset reveal" style="--reveal-delay: 300ms">
+              <div class="process-card__top">
+                <span class="process-card__icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+                </span>
+                <span class="process-card__step">étape 04</span>
+              </div>
+              <h3>Suivi</h3>
+              <p>Un site vit. Je reste disponible pour les petites évolutions, les questions et les mises à jour. Vous gardez un interlocuteur, pas un ticket.</p>
+              <p class="process-card__fear">« Je serai seul après ? » — Non. C'est le principe.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="a-propos" class="section section--about">
+        <div class="mesh-blob mesh-blob--about" aria-hidden="true"></div>
+        <div class="wrap about-grid">
+          <div class="reveal">
+            <p class="eyebrow">04 — À propos</p>
+            <h2 class="about__title">
+              Un regard humain<br />
+              <span>derrière chaque écran.</span>
+            </h2>
+          </div>
+          <div class="about__copy reveal" style="--reveal-delay: 120ms">
+            <p>
+              Je suis la personne derrière Breathe Studio. J'accompagne les indépendants et les petites équipes
+              qui veulent un site singulier, clair et agréable à faire évoluer.
+            </p>
+            <div class="about__tags">
+              <span class="tag-mono inline-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                design sur-mesure
+              </span>
+              <span class="tag-mono inline-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                France · à distance
+              </span>
+            </div>
+            <button type="button" class="text-link" data-open-contact>
+              Faire connaissance
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__cta reveal">
+          <h2>
+            Et si votre site<br />
+            <span>respirait</span> enfin ?
+          </h2>
+          <div class="footer__actions">
+            <button type="button" class="btn btn--solid magnetic" data-open-contact>
+              Écrire à Breathe Studio
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </button>
+            <div class="footer__contacts">
+              <a href="mailto:bonjour@breathe.studio">bonjour@breathe.studio</a>
+              <span>Votre numéro de téléphone</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bar">
+          <div class="footer__meta">
+            <span>breathe<span class="dot">.</span>studio — design web &amp; développement sur-mesure</span>
+            <span>Votre nom et prénom · Designer web et développeur indépendant</span>
+            <span>Votre adresse professionnelle, France</span>
+            <span>© 2026 · fait à la main, sans template</span>
+          </div>
+          <nav aria-label="Informations légales" class="footer__legal">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <a href="politique-de-confidentialite.html">Confidentialité / RGPD</a>
+            <a href="politique-cookies.html">Gestion des cookies</a>
+            <a href="cgv.html">CGV</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Contact panel -->
+    <div class="contact-backdrop" id="contact-backdrop" aria-hidden="true"></div>
+    <aside
+      class="contact-panel glass"
+      id="contact-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-title"
+      aria-hidden="true"
+    >
+      <div class="contact-panel__head">
+        <span>contact — réponse sous 24 h</span>
+        <button type="button" class="icon-btn" id="contact-close" aria-label="Fermer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="contact-form-view">
+        <h2 id="contact-title">
+          Prenons une grande<br />
+          <span>inspiration</span> ensemble.
+        </h2>
+        <p class="contact-panel__lead">
+          Racontez-moi votre projet en quelques mots. Pas besoin d'être précis ni technique : on affinera
+          ensemble.
+        </p>
+
+        <form id="contact-form" class="contact-form">
+          <label class="sr-only" for="c-name">Votre prénom</label>
+          <input id="c-name" name="name" required placeholder="Votre prénom" class="field" />
+          <label class="sr-only" for="c-email">Votre e-mail</label>
+          <input id="c-email" name="email" type="email" required placeholder="Votre e-mail" class="field" />
+          <label class="sr-only" for="c-msg">Votre projet</label>
+          <textarea id="c-msg" name="message" required rows="4" placeholder="Votre projet, en quelques mots…" class="field field--area"></textarea>
+          <fieldset>
+            <legend>budget indicatif</legend>
+            <div class="budget-options">
+              <label><input type="radio" name="budget" value="&lt; 2 k€" /><span class="tag-mono">&#60; 2 k€</span></label>
+              <label><input type="radio" name="budget" value="2 – 5 k€" /><span class="tag-mono">2 – 5 k€</span></label>
+              <label><input type="radio" name="budget" value="5 – 10 k€" /><span class="tag-mono">5 – 10 k€</span></label>
+              <label><input type="radio" name="budget" value="je ne sais pas encore" /><span class="tag-mono">je ne sais pas encore</span></label>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn--solid btn--full">
+            Envoyer le message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+          </button>
+          <p class="contact-form__note">Aucune newsletter, aucun démarchage. Juste une réponse.</p>
+        </form>
+      </div>
+
+      <div id="contact-sent-view" class="contact-sent" hidden>
+        <span class="contact-sent__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <h2>Merci, c'est reçu.</h2>
+        <p>Je lis chaque message personnellement. Vous aurez une réponse humaine, pas un accusé automatique.</p>
+        <button type="button" class="text-link" id="contact-back">Revenir au site</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
